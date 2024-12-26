@@ -79,7 +79,7 @@ This project is a secure platform, "Personal Data Vault," that allows users to s
 
 
 ##  Project Structure 
-
+```
 project-directory/
 |-- app.py                # Main application file
 |-- templates/            # HTML templates for the frontend
@@ -90,4 +90,4 @@ project-directory/
 |-- static/               # Static files (CSS, JS, images)
 |-- database.db           # SQLite database file
 |-- requirements.txt      # Python dependencies
-
+```
