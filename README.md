@@ -1,5 +1,5 @@
 # Personal Data Vault
-
+Link to PPT : https://drive.google.com/drive/folders/19HlRY-uBPuTTB-uRhzowgVH4W0KDYAP-?usp=sharing
 ## Overview
 This project is a secure platform, "Personal Data Vault," that allows users to store and manage sensitive personal data, such as files and documents, with encryption and robust authentication. It is built using Flask, SQLAlchemy, and Bcrypt for security and SQLite for database storage. AES encryption ensures that files are securely stored.
 
