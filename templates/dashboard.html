@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h2, h3 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .view-button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            background-color: #4CAF50; /* Green */
+        }
+        .view-button:hover {
+            background-color: #45a049; /* Darker green */
+        }
+    </style>
+</head>
+<body>
+    <h2>User Dashboard</h2>
+   
+    <!-- File Upload Form -->
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        <label for="file">Select File:</label>
+        <input type="file" id="file" name="file" required>
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" placeholder="Category (e.g., Financial, Personal)" required>
+        <button type="submit">Upload File</button>
+    </form>
+
+    <!-- Uploaded Files Section -->
+    <h3>Uploaded Files</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Filename</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if files %}
+                {% for file in files %}
+                <tr>
+                    <td>{{ file.filename }}</td>
+                    <td>{{ file.category }}</td> <!-- Assuming category is part of the File model -->
+                    <td>
+                        <!-- Link to download the file -->
+                        <a href="{{ url_for('download_file', file_id=file.id) }}" class="view-button">Download</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="3">No files uploaded yet.</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+
+</body>
+</html>
